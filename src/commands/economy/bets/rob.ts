@@ -23,8 +23,7 @@ export default {
       return message.reply("Alguno de los dos usuarios no están registrados en la base de datos.")
 
     const amountStealed = rob(userToSteal?.cash)    
-
-    if(!amountStealed) return
+    console.log({ amountStealed });
 
     const embed =  commonEmbed(message)
 
@@ -35,7 +34,7 @@ export default {
 
         await userToSteal.updateOne({ $inc : { cash : amountStealed * -1 } })
 
-        embed.setDescription(`Por ratero, la policia te ha atrapado y le has tenido que pagar una indemnización a <@!${mentionatedInfo.userId}> de \`${amountStealed * -1}\``)
+        embed.setDescription(`Por ratero, la policia te ha atrapado y le has tenido que pagar una indemnización a <@!${mentionatedInfo.userId}> de \`$${amountStealed * -1}\`. 😡`)
       }        
       else
       {
