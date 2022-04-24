@@ -1,0 +1,22 @@
+{
+  "name": "kou_zomega",
+  "version": "0.0.1",
+  "description": "This is a discord bot",
+  "scripts": {
+    "build": "tsc",
+    "co" : "sui-mono commit",
+    "start": "node dist/index.js",
+    "start:bot": "yarn build && yarn start"
+  },
+  "author": "iDiego5614",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "13.6.0",
+    "dotenv": "^16.0.0",
+    "mathjs": "^10.5.0",
+    "mongoose": "6.3.0"
+  },
+  "devDependencies": {
+    "@s-ui/mono": "2.26.0"
+  }
+}
