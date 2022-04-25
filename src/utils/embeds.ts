@@ -38,7 +38,7 @@ export const notAdministratorEmbed = (message : Message) =>
   const embed = commonEmbed(message)
 
   embed.setAuthor({ name : "ERROR" })
-  embed.setDescription(`No tienes los permisos de administrador requeridos para ejecutar este comando. <a:x2:852705604010770472>`)
+  embed.setDescription(`No tienes los permisos de administrador requeridos para ejecutar este comando. <:khe:967976665940635738>`)
 
   return embed
 }
