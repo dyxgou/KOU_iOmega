@@ -9,6 +9,9 @@ export default {
 
     const mention = message.mentions.members?.first()
 
+    if(message.author.id === mention?.id) 
+      return message.reply("¿Qué haces mencionandote a ti mismo? o.O")
+
     if(!mention)
       embed.setDescription(`${message.author} sabe a Otaku y a canela. -w-`)
     else
