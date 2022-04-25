@@ -7,6 +7,9 @@ interface IGuild extends Document
   guildId : string,
   minAmount : Amount,
   maxAmount : Amount,
+  channels : {
+    confession : string
+  }
 }
 
 
@@ -46,6 +49,12 @@ const GuildSchema = new Schema<IGuild>(
         default : MAX_AMOUNT.fight
       }
     },
+
+    channels : {
+      confession : {
+        type : String,
+      }
+    }
   }
 )
 

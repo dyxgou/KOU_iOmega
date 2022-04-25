@@ -1,0 +1,40 @@
+import { Message } from "discord.js";
+import GuildSchema from "../../schemas/GuildSchema";
+import { ICallback } from "utils/Command";
+import { commonEmbed , serverNotFoundEmbed } from "../../utils/embeds";
+
+export default {
+  callback : async(message : Message ,  ...args : string[]) =>
+  {
+    const msg = args.join(" ")
+
+    if(!msg)
+      return 
+  
+    const embed = commonEmbed(message).setAuthor({
+      name : `Secretico en ${message.guild?.name}`,
+      iconURL : message.guild?.iconURL({ dynamic :  true }) || ""
+    }).setDescription(`> *${msg}* **( 👀 )**`)
+
+    const { guildId } = message
+
+    const server = await GuildSchema.findOne({ guildId } , {
+      'channels.confession' : true , _id : false
+    })
+
+    if(!server)
+    {
+      return message.reply({ embeds : [ serverNotFoundEmbed(message) ] }).then(() => message.delete())
+    }
+
+    const channel = message.guild?.channels.cache.find(cfsChannel => cfsChannel.id === server.channels.confession)
+    
+    if(!channel?.isText())
+      return
+    
+    return channel.send({ embeds : [ embed ] }).then((msg) => {
+      message.delete()
+      msg.react("🙀")
+    })
+  }
+} as ICallback
