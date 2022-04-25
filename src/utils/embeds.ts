@@ -1,5 +1,5 @@
 import { Message, MessageEmbed } from "discord.js";
-
+import getGif from "./getGif";
 
 
 export const userNotFoundEmbed = (message : Message) => 
@@ -54,6 +54,25 @@ export const serverNotFoundEmbed = (message : Message) =>
     timestamp : Date.now(),
     description : `El servidor no está registrado en la base de datos. D:
     Para registrarlo en el sistema de Economía, puedes realizar el comando \`z!start-server\`, recuerda que debes tener permisos de administrador.  <a:Starts:827655358277091369>`
+  })
+
+  return embed
+}
+
+
+
+export const gifEmbed = async(message : Message , category : string) => 
+{
+
+
+  const embed = new MessageEmbed({
+    color : "RANDOM",
+    image : {
+      url : await getGif(category),
+    },
+    footer : {
+      text : "Cortesía de Satou-Chat API"
+    },
   })
 
   return embed
