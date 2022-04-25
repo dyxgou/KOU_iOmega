@@ -26,13 +26,9 @@ export default {
     let finalAmount : number
 
     if(amountToDep === ALL_OF_CASH)
-    {
       finalAmount = user?.cash
-    }
     else
-    {
       finalAmount = parseInt(amountToDep)
-    }
     
     const embed = commonEmbed(message)
     

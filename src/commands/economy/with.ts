@@ -29,13 +29,9 @@ export default {
     
 
     if(amountToWith === WITH_ALL_BANK)
-    {
       finalAmount = user?.bank
-    }
     else
-    {
       finalAmount = parseInt(amountToWith)
-    }
 
     try {
       await user.updateOne({
