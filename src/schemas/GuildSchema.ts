@@ -1,15 +1,18 @@
 import { Schema , Document , model } from "mongoose"
 import { Amount ,  MIN_AMOUNT , MAX_AMOUNT } from "../utils/defaultVariables"
 
+interface IChannel
+{
+  confession : string,
+  suggestion : string
+}
 
 interface IGuild extends Document
 {
   guildId : string,
   minAmount : Amount,
   maxAmount : Amount,
-  channels : {
-    confession : string
-  }
+  channels : IChannel
 }
 
 
@@ -53,6 +56,9 @@ const GuildSchema = new Schema<IGuild>(
     channels : {
       confession : {
         type : String,
+      },
+      suggestion : {
+        type : String
       }
     }
   }
