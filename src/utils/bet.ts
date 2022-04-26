@@ -15,9 +15,12 @@ export const rob = (stealedCash : number) =>
 {
   const isStealed = randomInt(0 , 100) % 2 !== 0
 
-  if(!isStealed || stealedCash <= 1000)
+  if(!isStealed)
     return -(stealedCash / 2)
   
+  if(stealedCash <= 1000) 
+    return -1000
+
   return stealedCash / 2
   
 }
