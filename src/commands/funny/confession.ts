@@ -22,10 +22,8 @@ export default {
       'channels.confession' : true , _id : false
     })
 
-    if(!server)
-    {
-      return message.reply({ embeds : [ serverNotFoundEmbed(message) ] }).then(() => message.delete())
-    }
+    if(!server?.channels.confession)
+      return message.reply("No hemos encontrado un canal de confesiones, para colocar uno, usa el comando `z!set-confession [ Canal]`").then(() => message.delete())
 
     const channel = message.guild?.channels.cache.find(cfsChannel => cfsChannel.id === server.channels.confession)
     

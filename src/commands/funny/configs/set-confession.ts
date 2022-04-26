@@ -37,5 +37,6 @@ export default  {
     }
 
     return message.reply({ embeds : [ embed ] })
-  }
+  },
+  cooldown : 60
 } as ICallback
