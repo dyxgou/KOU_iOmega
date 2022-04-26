@@ -25,8 +25,8 @@ export default {
 
     const row = buttonsRow(buttons)
 
-    if(!suggestion || suggestion.length <= 15)
-      return message.reply("`z!suggestion [Sugerencia]`")
+    if(!suggestion || suggestion.length <= 10)
+      return message.reply("`z!suggestion [Sugerencia -> Más de 10 carácteres]`")
 
     const { guildId }  = message
 
