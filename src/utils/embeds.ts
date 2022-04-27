@@ -61,18 +61,15 @@ export const serverNotFoundEmbed = (message : Message) =>
 
 
 
-export const gifEmbed = async(message : Message , category : string) => 
+export const gifEmbed = (category : string) => 
 {
-
+  const gif = getGif(category)
 
   const embed = new MessageEmbed({
-    color : "RANDOM",
+    color :"RANDOM"  ,
     image : {
-      url : await getGif(category),
-    },
-    footer : {
-      text : "Cortesía de Satou-Chat API"
-    },
+      url : gif
+    }
   })
 
   return embed

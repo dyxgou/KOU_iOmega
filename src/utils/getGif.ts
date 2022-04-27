@@ -1,13 +1,15 @@
-import axios from "axios"
+import * as GIFS from "./gifs.json"
+import { randomInt } from "mathjs"
 
-const getGif = async(category : string) => 
+type GifGroup = keyof typeof GIFS
+
+const getGif = (category : string) => 
 {
-  const data = await axios.get(`https://api.satou-chan.xyz/api/endpoint/${category}`)
-  
-  if(data.status !== 200)
-    return
+  const gifs = GIFS[ category as GifGroup ]
+  const randomIndex = randomInt(0 , gifs.length)
+  const gif = gifs[ randomIndex ]
 
-  return data.data?.url
+  return gif
 }
 
 

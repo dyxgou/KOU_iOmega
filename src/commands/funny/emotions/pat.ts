@@ -1,22 +1,25 @@
 import { Message } from "discord.js";
 import { ICallback } from "utils/Command";
-import { gifEmbed } from "../../../utils/embeds";
+import { gifEmbed } from "utils/embeds";
 
 export default {
-  callback : async(message : Message , ...args : string[]) => 
+  callback : (message : Message , ...args : string[]) => 
   {
-    const embed = await gifEmbed(message , "pat")
+    const mentionated = message.mentions.members?.first()
+    const { author } =  message
 
-    const mention = message.mentions.members?.first()
+    const embed = gifEmbed("pat")
 
-    if(message.author.id === mention?.id) 
-      return message.reply("¿Qué haces mencionandote a ti mismo? o.O")
+    if(author.id === mentionated?.id)
+      return message.reply("¿ Qué haces mencionandote a ti mismo ? 😎 ")
 
-    if(!mention)
-      embed.setDescription(`Ola'. ${message.author} está lleno de cazpa. p.p`)
+    if(!mentionated)
+      embed.setDescription(`${author}, sólo dejese querer. -w-`)
     else
-      embed.setDescription(`${message.author} está acariciando la cabeza de ${mention}. o.O`)
-    
-    return message.channel.send({ embeds : [ embed ] })
+      embed.setDescription(`${author} está acariciando la cabeza de ${mentionated}. o.O`)
+
+    return message.reply({
+      embeds : [ embed ]
+    })
   }
 } as ICallback

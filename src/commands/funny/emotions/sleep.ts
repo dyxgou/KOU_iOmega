@@ -8,15 +8,15 @@ export default {
     const mentionated = message.mentions.members?.first()
     const { author } =  message
 
-    const embed = gifEmbed("happy")
+    const embed = gifEmbed("sleep")
 
     if(author.id === mentionated?.id)
       return message.reply("¿ Qué haces mencionandote a ti mismo ? 😎 ")
 
     if(!mentionated)
-      embed.setDescription(`${author} está muy feliz. 🤩`)
+      embed.setDescription(`${author} se fue a hacer la mimisión. 🤩`)
     else
-      embed.setDescription(`${author} está alegrando a ${mentionated}. 🤩`)
+      embed.setDescription(`${author} se fue a dormir con ${mentionated}. 😳`)
 
     return message.reply({
       embeds : [ embed ]
