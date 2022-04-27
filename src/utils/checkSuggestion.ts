@@ -9,7 +9,7 @@ enum SgsStatus
 
 type Interaction = MessageComponentInteraction<CacheType> | undefined
 
-interface CheckSgsOptions
+interface InteractionOptions 
 {
   suggestionStatus : string,
   interaction : Interaction,
@@ -18,7 +18,7 @@ interface CheckSgsOptions
   author :  User
 }
 
-const checkSuggestion = ({ embed , interaction , suggestion , suggestionStatus , author } : CheckSgsOptions) => 
+const checkSuggestion = ({ embed , interaction , suggestion , suggestionStatus , author } : InteractionOptions) => 
 {  
 
   if(suggestionStatus === SgsStatus.ACCEPTED)

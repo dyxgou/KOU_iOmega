@@ -37,7 +37,7 @@ const commandHandler = (bot : Client , dir : string) =>
 
   bot.on("messageCreate" , async(message) => 
   {
-    const args = message.content.substring(PREFIX.length).split(/ /g)
+    const args = message.content.substring(PREFIX.length).trim().split(/ +/g)
     const commandPrefix = args.shift()?.toLowerCase()
     console.log({ msg : message.content });
     

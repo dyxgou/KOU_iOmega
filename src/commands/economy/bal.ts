@@ -30,6 +30,7 @@ export default {
     if(!user)
       return message.reply({ embeds : [ notFound ] })
 
+    const total = user?.cash + user?.bank
 
     const embed = new MessageEmbed({
       author : { name : "ECONOMY - BALANCE" ,  iconURL : message.guild?.iconURL({ dynamic : true }) || "" },
@@ -41,17 +42,17 @@ export default {
       fields : [
         {
           name : "| 🪙 | KOINS",
-          value : `\`$ ${user?.cash}\``,
+          value : `\`$ ${user?.cash.toFixed(0)}\``,
           inline : true
         }, 
         {
           name : "| 🏦 | BANK",
-          value : `\`$ ${user?.bank}\``,
+          value : `\`$ ${user?.bank.toFixed(0)}\``,
           inline : true
         },
         {
           name : "| 🏧 | TOTAL",
-          value : `\`$ ${user?.cash + user?.bank}\``,
+          value : `\`$ ${total.toFixed(0)}\``,
           inline : true 
         }
       ]

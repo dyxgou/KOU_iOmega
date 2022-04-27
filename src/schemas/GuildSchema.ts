@@ -4,7 +4,7 @@ import { Amount ,  MIN_AMOUNT , MAX_AMOUNT } from "../utils/defaultVariables"
 interface IChannel
 {
   confession : string,
-  suggestion : string
+  suggestion : string,
 }
 
 interface IGuild extends Document
@@ -59,7 +59,7 @@ const GuildSchema = new Schema<IGuild>(
       },
       suggestion : {
         type : String
-      }
+      },
     }
   }
 )
