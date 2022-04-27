@@ -2,7 +2,6 @@ import { Client, Collection } from "discord.js"
 import { runAsyncCommand, runSyncCommand } from "../utils/runCommands"
 import { CommandsMap, ICommand } from "../utils/Command"
 import getFiles from "./getFiles"
-import * as fs from "fs"
 
 const PREFIX = "z!"
 const suffix = __filename.substring(__filename.length - 3)
