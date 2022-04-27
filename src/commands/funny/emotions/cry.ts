@@ -1,6 +1,6 @@
 import { Message } from "discord.js";
 import { ICallback } from "utils/Command";
-import { gifEmbed } from "utils/embeds";
+import { gifEmbed } from "../../../utils/embeds";
 
 export default {
   callback : (message : Message , ...args : string[]) => 
