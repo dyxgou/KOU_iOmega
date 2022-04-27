@@ -8,7 +8,7 @@ export default {
     const mentionated = message.mentions.members?.first()
     const { author } =  message
 
-    const embed = gifEmbed("run")
+    const embed = gifEmbed("lick")
       .setFooter({text : "WTF amigo con los Gifs. ._."})
 
     if(author.id === mentionated?.id)
