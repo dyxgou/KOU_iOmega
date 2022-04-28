@@ -6,6 +6,8 @@ import getFiles from "./getFiles"
 const PREFIX = "z!"
 const suffix = __filename.substring(__filename.length - 3)
 
+export const commandsHelp : Map<string , string> = new Map()
+
 const commandHandler = (bot : Client , dir : string) => 
 {
   const commandsDirs = getFiles(`${dir}\\commands` , suffix)
@@ -17,7 +19,6 @@ const commandHandler = (bot : Client , dir : string) =>
   {
     const commandImport : ICommand = require(commandDir)
 
-
     if(!commandImport?.default)
       continue
 
@@ -25,7 +26,7 @@ const commandHandler = (bot : Client , dir : string) =>
     const cmdName = commandDir.substring(cmdNameIndex).replace(suffix , "")
 
     commandsMap.set(cmdName , commandImport.default)
-
+    commandsHelp.set(cmdName , commandImport.default?.help || "")
     console.log(`| ✅ | ${cmdName}`);
 
     if(commandImport?.default?.cooldown)
@@ -79,8 +80,6 @@ const commandHandler = (bot : Client , dir : string) =>
         runAsyncCommand({ args , command , cooldownAmount ,currentTime , message , timestamps })
       }
     }
-    
-
   })
 }
 

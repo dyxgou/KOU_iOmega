@@ -4,6 +4,7 @@ interface ICallback
 {
   callback : (message : Message , ...args : string[]) => {},
   cooldown ?: number,
+  help ?: string
 }
 
 interface ICommand
@@ -12,7 +13,6 @@ interface ICommand
 }
 
 type CommandsMap = Map< string , ICallback >
-
 
 interface RunCommand 
 {

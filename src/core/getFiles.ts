@@ -18,7 +18,6 @@ const getFiles = (dir : string , suffix : string) : string[] =>
       ]
     }
 
-
     if(file.name.endsWith(".d.ts"))
     {
       continue

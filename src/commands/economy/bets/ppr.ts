@@ -67,6 +67,7 @@ export default {
       int,
       bet
     }))
-    
-  }
+  },
+  cooldown : 20,
+  help : `** ( <a:Diamond:969252719577669652> ) **Comando : \`z!ppr [ Contrincante ] [ Dinero Apostado ]\`, con este comando puedes retar a alguien a un duelo de ** Piedra, Papel o Tijera**, y el ganador, se queda con el dinero apostado por el perderdor. 😈🤙`
 } as ICallback  
