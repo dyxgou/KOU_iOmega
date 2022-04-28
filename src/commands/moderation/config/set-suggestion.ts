@@ -16,7 +16,9 @@ export default{
     
     const { guildId } = message
 
-    const server = await GuildSchema.findOne({ guildId })
+    const server = await GuildSchema.findOne({ guildId } , {
+      channels :  true
+    })
 
     if(!server)
       return message.reply({ embeds : [ serverNotFoundEmbed(message) ] })
