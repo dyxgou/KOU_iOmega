@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás darle una cachetada para enseñar de forma totalmente pácifica tu prudencia y respeto. 🤑🤙`
 } as ICallback

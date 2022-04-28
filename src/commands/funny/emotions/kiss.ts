@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Con este comando habrás llegado al nivel máximo del Simp y se lo darás a alguien que quieras mucho. 😳`
 } as ICallback

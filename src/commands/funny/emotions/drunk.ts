@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás ser el/la estúpid@ de la mesa con este comando. 🥴`
 } as ICallback

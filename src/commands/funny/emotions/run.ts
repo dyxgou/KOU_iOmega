@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás escapar de tod@s es@s acosador@s  que te persiguen por ser más hermos@ que el atardecer y rápido que MessiChiquito. 😎`
 } as ICallback

@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás mostrar tu tristeza y falta de atención, llorando un poquito. 😭`
 } as ICallback

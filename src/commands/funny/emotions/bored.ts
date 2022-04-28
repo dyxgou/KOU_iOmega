@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Mostraras tus masivas cantidades de tiempo libre y aburrimiento. 😎`
 } as ICallback

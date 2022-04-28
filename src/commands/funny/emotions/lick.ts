@@ -22,5 +22,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Como eres un/a complet@ cochin@ podrás lamer y contagiar alguien de todo tipo de enfermedades con tu lengua. 🥵`
 } as ICallback

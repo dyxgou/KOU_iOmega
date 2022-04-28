@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás partirte la getta con otra persona con este comando. 😡`
 } as ICallback

@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás demostrar toda tu rabia contra alguien. 👿`
 } as ICallback

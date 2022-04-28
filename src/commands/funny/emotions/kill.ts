@@ -22,5 +22,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás usar tu Nerf o nada, para inflar tus Kills con ésta bola de mancos. 🤑🤙`
 } as ICallback

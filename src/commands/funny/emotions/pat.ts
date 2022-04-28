@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help:  `Iniciarás tu camino en el Simpismo con este comando o también se lo darás alguien que quiera una acaricia. 😋`
 } as ICallback

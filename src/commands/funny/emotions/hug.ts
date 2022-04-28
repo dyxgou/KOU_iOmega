@@ -16,10 +16,11 @@ export default {
     if(!mentionated)
       embed.setDescription(`Ven ${author}, dame un abrazo . 😋`)
     else
-      embed.setDescription(`${author} está abrazando a ${mentionated}. owO`)
+      embed.setDescription(`${author} está abrazando a ${mentionated}. 😳`)
 
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás demostrar tu amor y que eres tremendo Simp con este comando. 😳`
 } as ICallback

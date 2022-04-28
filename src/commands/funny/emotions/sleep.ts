@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás hecharte una siestica o dormirte con alguien. 7u7 . _.XD`
 } as ICallback

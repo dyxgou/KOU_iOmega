@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás demostrar que no estás mamado de este govierno con una sonrisa al frente. 🤩`
 } as ICallback

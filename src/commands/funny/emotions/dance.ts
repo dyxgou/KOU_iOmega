@@ -21,5 +21,6 @@ export default {
     return message.reply({
       embeds : [ embed ]
     })
-  }
+  },
+  help : `Podrás pegarte un **EL PERREO Y LA DIGNIDAD HASTA ABAJO** con este comando. 🥵`
 } as ICallback
