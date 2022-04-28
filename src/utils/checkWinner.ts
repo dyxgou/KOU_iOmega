@@ -62,25 +62,33 @@ const checkWinner = async({ userChallenged , userChallenging , embed , int , bet
 
   if(challenged && challenging)
   {
-    if(challenged === challenging)
-    {
-      embed.setDescription(`Ha sido empate. 🤑`)
-    }
-    else if(HANDS_WINNERS[ challenging as Options ] === challenged)
-    {
-      embed.setDescription(`<@!${userChallenging.userId}> ha ganado. 🥳
-      Y con ésta vicotoria, también gana \`$${bet}\`. 🤑🤙`)
-      await userChallenging.updateOne({ $inc : { cash : bet } })
-      await userChallenged.updateOne({ $inc : { cash : -bet } })
-    }
-    else
-    {
-      embed.setDescription(`<@!${userChallenged.userId}> ha ganado. 🥳
-      Y con ésta victoria, también gana \`$${bet}\`. 🤑🤙`)
-      await userChallenging.updateOne({ $inc : { cash : -bet } })
-      await userChallenged.updateOne({ $inc : { cash : bet } })
-    }
+    
 
+    try {
+      if(challenged === challenging)
+      {
+        embed.setDescription(`Ha sido empate. 🤑`)
+      }
+      else if(HANDS_WINNERS[ challenging as Options ] === challenged)
+      {
+        embed.setDescription(`<@!${userChallenging.userId}> ha ganado. 🥳
+        Y con ésta vicotoria, también gana \`$${bet}\`. 🤑🤙`)
+        await userChallenging.updateOne({ $inc : { cash : bet } })
+        await userChallenged.updateOne({ $inc : { cash : -bet } })
+      }
+      else
+      {
+        embed.setDescription(`<@!${userChallenged.userId}> ha ganado. 🥳
+        Y con ésta victoria, también gana \`$${bet}\`. 🤑🤙`)
+        await userChallenging.updateOne({ $inc : { cash : -bet } })
+        await userChallenged.updateOne({ $inc : { cash : bet } })
+      }
+    } catch (err) {
+      console.error({ err })
+
+      embed.setDescription(`Ha llegado un Uracán y hizo que ustedes no pudieran terminar la partida. 😫`)
+    }
+    
     users = {}
     return int.reply({ embeds : [ embed ] })
   }
