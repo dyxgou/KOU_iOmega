@@ -41,5 +41,6 @@ export default{
 
     return message.reply({ embeds : [ embed ] })
   },
-  cooldown : 60
+  cooldown : 60,
+  help : `Podrás establecer un canal en el cual puedes mandar sugerencias o esperar a que un admin te las acepte. 😋`
 } as ICallback  

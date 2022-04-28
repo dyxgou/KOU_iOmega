@@ -26,5 +26,6 @@ export default {
       return message.reply(`${mentionated}  ha sido kickeado correctamente.
       **RAZÓN** : ${reason}`)
     }
-  }
+  },
+  help : `Podrás explusar a un usuario que haya incumplido las reglas de tu servidor. 😡`
 } as ICallback

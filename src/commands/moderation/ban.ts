@@ -50,5 +50,6 @@ export default {
         }
       }
     }
-  }
+  },
+  help : `Podrás banear a alguien que haya incumplido con los reglamentos básicos de tu servidor. 😡`
 } as ICallback  

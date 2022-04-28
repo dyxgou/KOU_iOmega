@@ -63,12 +63,13 @@ export default {
     {
       const interaction = buttonInt?.first()
       const suggestionStatus = interaction?.customId
-
       
       if(!interaction || !interaction.isButton() || !suggestionStatus)
         return
       
       return checkSuggestion({ embed , interaction , suggestion , suggestionStatus , author : message.author })
     })
-  }
+  },
+  cooldown : 60,
+  help : `Ya establecido un canal de sugerencias, puedes mandar las sugerencias que tengas hacía tu servidor y esperar una respuesta del Staff. 😎`
 } as ICallback
