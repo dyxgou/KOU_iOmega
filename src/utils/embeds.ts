@@ -1,3 +1,4 @@
+import { commandsHelp } from "../core/commandHandler";
 import { Message, MessageEmbed } from "discord.js";
 import getGif from "./getGif";
 
@@ -80,7 +81,7 @@ export const helpCategories = () =>
   const embed = new MessageEmbed({
     author : { name : "Comandos de KOU_zOmega 😳" , iconURL : "https://cdn.discordapp.com/avatars/904777859397206056/205c4da64fb3a7c03004bc8ea8024ad3.webp?size=1024" },
     color : "RANDOM",
-    description : `**( <a:Ok1:967855659653685298> )** Actualmente, KOU_zOmega cuenta con 3 categorías de comandos, en las cuales se adjuntan \`44 comandos\`. Los cuales te presento a continuación : 
+    description : `**( <a:Ok1:967855659653685298> )** Actualmente, KOU_zOmega cuenta con 3 categorías de comandos, en las cuales se adjuntan \`${commandsHelp.size} comandos\`. 
     
     **( <a:Bum:969254862388858950> )** Comandos de una categoría : \`z!help [Categoría]\`
     **( <a:Diamond:969252719577669652> )** Historia del bot : \`z!history\`
