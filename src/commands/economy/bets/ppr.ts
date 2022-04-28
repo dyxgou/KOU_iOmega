@@ -6,6 +6,7 @@ import { ICallback } from "../../../utils/Command";
 import { commonEmbed } from "../../../utils/embeds";
 import { getMentionInfo, getUserInfo } from "../../../utils/getInformation";
 
+const ALL_MONEY = "all"
 
 export default {
   callback : async (message : Message,   ...args : string[]) => 
@@ -27,8 +28,14 @@ export default {
 
     if(!userChallenging || !userChallenged)
       return message.reply("Alguno de los dos usuarios no está registrado en nuestra base de datos.")
-
-    const bet = parseInt(amount)      
+    
+    let bet : number
+    
+    if(amount === ALL_MONEY)
+      bet = userChallenging.cash
+    else
+      bet = parseInt(amount)
+    
     
     if(userChallenging.cash < bet || userChallenged.cash < bet)
       return message.reply("Alguno de los dos usuarios no tiene suficiente dinero. 😢")
