@@ -37,7 +37,8 @@ export default {
   
     const embed = commonEmbed(message)
 
-    
+    if(user.cash <= 0 || amount > user?.cash)
+      return message.reply(`No puedes pagar esas cantidades.`)
 
     try {
       await userToPay?.updateOne({

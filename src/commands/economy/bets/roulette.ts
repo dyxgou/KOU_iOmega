@@ -39,7 +39,7 @@ export default {
     console.log({ stalkedAmount });
     
 
-    if(parseInt(stalkedAmount))  
+    if(parseInt(stalkedAmount) >= 1000)  
       amount = parseInt(stalkedAmount)
     else if(stalkedAmount === ALL_MONEY)
       amount = user?.cash

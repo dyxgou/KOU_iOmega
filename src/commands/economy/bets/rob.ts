@@ -11,19 +11,22 @@ export default {
     const userInfo = getUserInfo(message)
     const mentionatedInfo = getMentionInfo(message)
 
-    if(!userInfo || !mentionatedInfo)
+    if(!userInfo || !mentionatedInfo || !args[0])
       return message.reply("<:pepewtf:967630589488418886> `z!rob [Usuario al que le vas a robar]`")
+
+    if(userInfo.userId === mentionatedInfo.userId)
+      return message.reply("No puedes mencionarte a ti mismo.")
 
     const [ userStealing , userToSteal ] = await Promise.all([
       UserSchema.findOne(userInfo),
       UserSchema.findOne(mentionatedInfo)
     ])
 
+
     if(!userStealing || !userToSteal)
       return message.reply("Alguno de los dos usuarios no están registrados en la base de datos.")
 
     const amountStealed = rob(userToSteal?.cash)    
-    console.log({ amountStealed });
 
     const embed =  commonEmbed(message)
 
