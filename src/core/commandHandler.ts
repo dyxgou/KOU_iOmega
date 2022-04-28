@@ -26,7 +26,7 @@ const commandHandler = (bot : Client , dir : string) =>
     const cmdName = commandDir.substring(cmdNameIndex).replace(suffix , "")
 
     commandsMap.set(cmdName , commandImport.default)
-    commandsHelp.set(cmdName , commandImport.default?.help || "")
+    commandsHelp.set(cmdName , commandImport.default?.help || "Pendiente a documentación")
     console.log(`| ✅ | ${cmdName}`);
 
     if(commandImport?.default?.cooldown)

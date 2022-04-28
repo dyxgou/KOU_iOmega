@@ -1,4 +1,4 @@
-import { Message } from "discord.js"
+import { EmbedFieldData, Message } from "discord.js"
 import { helpCategories } from "./embeds"
 import { commandsHelp }  from "../core/commandHandler"
 import getFiles from "../core/getFiles"
@@ -14,7 +14,7 @@ const CATEGORY_INTRO =
 
 const EMOJIS = { economy : "💵" , funny : "😊" , moderation : "👮‍♀️" }
 
-const getCmdDescription = (msg : Message , category : string) => 
+const getCmdCategory = (msg : Message , category : string) => 
 {
   const categoryIntro = CATEGORY_INTRO[ category as CategoryIntro ]
 
@@ -25,20 +25,22 @@ const getCmdDescription = (msg : Message , category : string) =>
   
   const commandsDir = __dirname.replace("\\utils" , "").concat(`\\commands\\${category}`)
   const commandsCategory = getFiles(commandsDir , suffix)
-  const commandsNames = commandsCategory.map(file => {
+  const commandsDesc : EmbedFieldData[] = commandsCategory.map(file => {
     const fileNameIndex = file.lastIndexOf("\\") + 1
     const fileName = file.substring(fileNameIndex).replace(suffix , "")
 
-    return `** ( ${EMOJIS[ category as CategoryIntro ]} )** \`z!${fileName}\``
-  }).join("\n")
+    //return `** ( ${EMOJIS[ category as CategoryIntro ]} )** \`z!${fileName}\` : ${commandsHelp.get(fileName)}`
+    return {
+      name : `** ( ${EMOJIS[ category as CategoryIntro ]} )** \`z!${fileName}\`` ,
+      value : `${commandsHelp.get(fileName)}`,
+    }
+  })
 
   embed.setDescription(`**( <a:Diamond2:969254860639834132> ) ${category.toUpperCase()}**
   ${categoryIntro(msg)}
-  
-  ${commandsNames}
-  `)
+  `).setFields(commandsDesc)
 
   return embed
 }
 
-export default getCmdDescription
+export default getCmdCategory
