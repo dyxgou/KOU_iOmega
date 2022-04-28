@@ -38,5 +38,6 @@ export default {
 
     return message.reply({ embeds : [ embed ] })    
 
-  }
+  },
+  help : `Si no sabes ni sumar, podrás usar este comando para solucionarte tu vida amorosa y Matemática. 🤩`
 } as ICallback

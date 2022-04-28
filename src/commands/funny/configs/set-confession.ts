@@ -38,5 +38,6 @@ export default  {
 
     return message.reply({ embeds : [ embed ] })
   },
-  cooldown : 60
+  cooldown : 60,
+  help : `Con este comando puedes establecer un canal para hacer tus confesiones más oscuras. 😜`
 } as ICallback

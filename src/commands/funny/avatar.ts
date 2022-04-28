@@ -31,5 +31,6 @@ export default {
     }
 
     return message.reply({ embeds : [ embed ] })
-  }  
+  }  ,
+  help : `Muestra lo fachero que eres y no serán los demás con tu Avatar al aire libre. 😎`
 } as ICallback

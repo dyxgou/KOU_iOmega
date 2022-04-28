@@ -34,5 +34,6 @@ export default {
       message.delete()
       msg.react("🙀")
     })
-  }
+  },
+  help : `Después de establecer un canal para confesarte, podrás enviar un mensaje anónimo contando tus más profundos secretos. 🙀`
 } as ICallback

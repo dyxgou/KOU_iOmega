@@ -18,5 +18,6 @@ export default {
       })
 
     return message.reply({ embeds : [ embed ] })
-  }
+  },
+  help : `Podrás ver la imagen que porta tu hermosa comunidad o server. 🤩`
 } as ICallback

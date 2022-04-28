@@ -1,6 +1,6 @@
 import { Message } from "discord.js";
 import { ICallback } from "utils/Command";
-import getCmdDescription from "../../utils/getCmdDescription";
+import getCmdCategory from "../../utils/getCmdCategory";
 import { helpCategories } from "../../utils/embeds";
 
 export default {
@@ -11,8 +11,9 @@ export default {
     if(!category)
       return message.reply({ embeds : [ helpCategories() ] })
 
-    const embed = getCmdDescription(message ,  category)
+    const embed = getCmdCategory(message ,  category)
 
     return message.reply({ embeds : [ embed ] })
-  }
+  },
+  help : `Tendrás una pequeña descripción de cada comando y su categoría.`
 } as ICallback
