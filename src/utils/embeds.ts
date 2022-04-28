@@ -83,7 +83,6 @@ export const helpCategories = () =>
     description : `**( <a:Ok1:967855659653685298> )** Actualmente, KOU_zOmega cuenta con 3 categorías de comandos, en las cuales se adjuntan \`44 comandos\`. Los cuales te presento a continuación : 
     
     **( <a:Bum:969254862388858950> )** Comandos de una categoría : \`z!help [Categoría]\`
-    **( <a:Pin:969254861608722433> )** Comando especifico : \`z!help [ Comando ]\`
     **( <a:Diamond:969252719577669652> )** Historia del bot : \`z!history\`
     
     ** CATEGORÍAS **
