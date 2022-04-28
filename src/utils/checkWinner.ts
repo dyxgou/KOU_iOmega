@@ -1,4 +1,4 @@
-import { CacheType, Collection, MessageComponentInteraction, MessageEmbed } from "discord.js";
+import { CacheType , MessageComponentInteraction, MessageEmbed } from "discord.js";
 import { button, buttonsRow } from "./buttons";
 import { IUser } from "../schemas/UserSchema"
 

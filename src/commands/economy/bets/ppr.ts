@@ -1,6 +1,6 @@
 import { Message } from "discord.js";
 import ms = require("ms");
-import checkWinner , { filter, optionsRow } from "../../../utils/checkChalleng";
+import checkWinner , { filter, optionsRow } from "../../../utils/checkWinner";
 import UserSchema from "../../../schemas/UserSchema";
 import { ICallback } from "../../../utils/Command";
 import { commonEmbed } from "../../../utils/embeds";
