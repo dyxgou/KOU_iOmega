@@ -49,5 +49,6 @@ export default {
     }
     
     return message.reply({ embeds : [ embed ] })
-  }
+  },
+  help : `Podrás sacar tu dinero del banco, para poder usarlo para otra cosa, pero cuídado, si tu dinero está en tu bolcillo, te puden robar. 😡`
 } as ICallback

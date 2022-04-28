@@ -12,7 +12,9 @@ export default {
     const userInfo = getUserInfo(message)
 
     const amountToDep = args[0]
-    
+    if(!amountToDep) 
+      return message.reply("`z!dep [Cantidad a depositar]`")
+
     const user = await UserSchema.findOne(userInfo)
     
     if(!user)
@@ -49,5 +51,6 @@ export default {
     }
  
     return message.reply({ embeds : [ embed ] })    
-  }
+  },
+  help : `Podrás depositar tu dinero en el banco, para que no te lo roben. 🧐`
 } as ICallback

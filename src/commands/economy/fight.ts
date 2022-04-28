@@ -43,5 +43,6 @@ export default {
     
     return message.reply({ embeds : [ embed ] })
   }, 
-  cooldown : 10
+  cooldown : 10,
+  help : `Podrás darte en la getta con una persona aleatoría, pero si no fuiste tan fuerte como la roca, te van a robar por webón. 😠`
 } as ICallback

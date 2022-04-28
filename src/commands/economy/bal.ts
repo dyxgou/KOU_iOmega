@@ -57,7 +57,7 @@ export default {
         }
       ]
     })
-
     return message.reply({ embeds : [ embed ] })
-  }
+  },
+  help : `Podrás ver la cantidad de dinero que tienes. 🤑🤙`
 } as ICallback

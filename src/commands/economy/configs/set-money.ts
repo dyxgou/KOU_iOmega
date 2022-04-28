@@ -67,6 +67,6 @@ export default {
 
     return message.reply({ embeds : [ embed ] })
   },
-
-  cooldown : 30 
+  cooldown : 30 ,
+  help : `Podrás establecer los valores mínimos y máximos que puedes ganar con una de las apuestas básica, como Work, Crime, Fight. 💶`
 } as ICallback

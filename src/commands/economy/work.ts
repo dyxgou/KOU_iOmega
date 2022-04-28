@@ -46,5 +46,6 @@ export default {
 
     return message.reply({ embeds : [ embed ] })
   },
-  cooldown : 25
+  cooldown : 25,
+  help : `Puedes demostrar que eres alguien totalmente honesto y no tendrás el riesgo de perder dinero. 😍`
 } as ICallback

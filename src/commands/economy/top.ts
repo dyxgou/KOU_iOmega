@@ -36,5 +36,6 @@ export default {
     embed.setFields(topFields)
 
     return message.reply({ embeds : [ embed ] })
-  }
+  },
+  help : `Podrás ver el top 10° de gente con más dinero en el servidor. 🤫`
 }  as ICallback

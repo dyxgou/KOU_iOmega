@@ -42,5 +42,6 @@ export default {
     
     return message.reply({ embeds : [ embed ] })
   },
-  cooldown : 15
+  cooldown : 15,
+  help : `Podrás sacar tu lado más ratero y robar una casa, con el riesgo que la policia te encuentre. 😎`
 } as ICallback

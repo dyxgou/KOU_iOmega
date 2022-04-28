@@ -36,5 +36,6 @@ export default {
 
     return message.reply({ embeds : [ embed ] })
   },
-  cooldown : 60 
+  cooldown : 60,
+  help : `Podrás registrarte en el sistema de Economía de tu servidor.` 
 } as ICallback

@@ -61,5 +61,6 @@ export default {
     }
 
     return message.reply({ embeds :  [ embed ] })
-  }
+  },
+  help : `Podrás pagarle a alguien una cierta cantidad de dinero, al ser tu corazón tan humilde como el del bicho SIUU. 😍`
 } as ICallback

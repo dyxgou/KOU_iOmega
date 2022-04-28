@@ -99,5 +99,6 @@ export default {
       return interaction.reply({ embeds: [embed] })
     })
   },
-  cooldown : 30
+  cooldown : 30,
+  help : `Podrás probar tu suerte en el cacino y si ganas, tu victoría será acompañada de el doble de la cantidad apostada. 🤑`
 } as ICallback

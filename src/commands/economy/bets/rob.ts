@@ -54,5 +54,6 @@ export default {
     }
 
     return message.reply({ embeds : [ embed ] })    
-  }
+  },
+  help : `Podrás demostrar la rata que eres robandole la mitad del dinero que otra persona tenga en el bolcillo, pero OJO, puedes salir perdiendo. 😈🙏`
 } as ICallback
