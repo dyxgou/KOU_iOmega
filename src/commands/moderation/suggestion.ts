@@ -45,8 +45,6 @@ export default {
     }).setDescription(`**( <a:Ok1:967855659653685298> )** ${suggestion} 
     **ESTADO** : \`PENDIENTE\`.`)
     
-    console.log({ server , channel });
-    
     
     if(!channel?.isText())
     return message.reply("El canal de sugerencias debe ser un canal de texto.")
