@@ -9,7 +9,7 @@ export default {
     const msg = args.join(" ")
 
     if(!msg)
-      return 
+      return message.reply("`z!confession [ Confesión ]`") 
   
     const embed = commonEmbed(message).setAuthor({
       name : `Secretico en ${message.guild?.name}`,
