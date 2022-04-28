@@ -14,8 +14,8 @@ export default {
     const mentionatedInfo = getMentionInfo(message , ...args)
     const amount = args[1]
 
-    if(!mentionatedInfo.userId || !userInfo.userId )
-      return message.reply("`z!ppr [Contrincante]  [ Apuesta > 1000 ]`")
+    if(!mentionatedInfo.userId || !userInfo.userId || !amount)
+      return message.reply("`z!ppr [Contrincante]  [ Apuesta ]`")
 
     if(userInfo.userId === mentionatedInfo.userId)
       return message.reply("No puedes mencionarte a ti mismo.")
