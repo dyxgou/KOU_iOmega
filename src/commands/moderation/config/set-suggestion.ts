@@ -42,5 +42,5 @@ export default{
     return message.reply({ embeds : [ embed ] })
   },
   cooldown : 60,
-  help : `Podrás establecer un canal en el cual puedes mandar sugerencias o esperar a que un admin te las acepte. 😋`
+  help : `Podrás establecer un canal para que la gente de tu servidor haga sugerencias a la tu comunidad y tu u otra persona del Staff las acepte. 😋`
 } as ICallback  
