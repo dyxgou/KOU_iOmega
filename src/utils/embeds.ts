@@ -95,3 +95,34 @@ export const helpCategories = () =>
 
   return embed
 }
+
+export const notNationsFound = (msg : Message) => 
+{
+  const embed = new MessageEmbed({
+    author : {
+      name : `Naciones de ${msg.guild?.name}`,
+      iconURL : msg.guild?.iconURL({ dynamic : true }) || ""
+    },
+    color : "RANDOM",
+    description : `${msg.author}, parace que este mundo está vacio... Sin alguien que lo domine, te invito a usar \`z!create-nation\` para ser el primero en poner los pies en la tierra y llegar a la conquista mundial.`,
+    timestamp : Date.now(),
+  })
+
+  return embed
+}
+
+
+export const notUserNation = (msg : Message) => 
+{
+  const embed = new MessageEmbed({
+    author : {
+      name : `Sistema de Países`,
+      iconURL : msg.guild?.iconURL({ dynamic : true }) || ""
+    },
+    color : "RANDOM",
+    description : `${msg.author}, no tienes una nación registrada en este planeta 😢. Para registrarte, usa \`z!create-nation\``,
+    timestamp : Date.now(),
+  })
+
+  return embed 
+}

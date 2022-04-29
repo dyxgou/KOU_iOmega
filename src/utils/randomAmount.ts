@@ -1,5 +1,5 @@
 import { randomInt } from "mathjs"
-import { MIN_AMOUNT , MAX_AMOUNT } from "./defaultVariables"
+import { MIN_AMOUNT , MAX_AMOUNT } from "./defaultServerVars"
 
 interface RandomAmount
 {
