@@ -34,6 +34,6 @@ export default {
 
     return message.reply({ embeds : [ embed ] })
   },
-  cooldown : 60,
-  help : `Con este comando puedes registrar tu servidor en la base de datos, para poder editar sus valores por defecto. 🔧`
+  cooldown : 120,
+  help : `Con este comando puedes registrar tu servidor en la base de datos, para poder editar sus valores por defec`
 } as ICallback

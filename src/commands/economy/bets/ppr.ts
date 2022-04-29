@@ -69,5 +69,5 @@ export default {
     }))
   },
   cooldown : 20,
-  help : `Podrás retar a alguien a un duelo de **Piedra, Papel o Tijera**, y el ganador, se queda con el dinero apostado por el perderdor. 😈🤙`
+  help : `Podrás retar a alguien a un duelo de ** Piedra, Papel o Tijera**, y el ganador, se queda con el dinero apostado por el perderdor. 😈🤙`
 } as ICallback  
