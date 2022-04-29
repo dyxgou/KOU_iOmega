@@ -1,4 +1,5 @@
 import { Schema , Document , model } from "mongoose"
+import { INation } from "./NationSchema"
 
 export interface IUser extends Document
 {
@@ -6,6 +7,7 @@ export interface IUser extends Document
   guildId : string,
   cash : number, 
   bank : number,
+  nation : Schema.Types.ObjectId & INation
 }
 
 
@@ -18,7 +20,6 @@ const UserSchema = new Schema<IUser>(
     guildId : {
       type : String,
       required : true,
-      ref : "guilds"
     },
     cash : {
       type : Number ,
@@ -27,6 +28,10 @@ const UserSchema = new Schema<IUser>(
     bank : {
       type : Number,
       default : 0
+    },
+    nation : {
+      type : Schema.Types.ObjectId,
+      ref : "nations"
     }
   }
 )
