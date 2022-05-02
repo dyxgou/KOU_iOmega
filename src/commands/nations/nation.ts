@@ -21,7 +21,6 @@ export default {
 
     const embed = commonEmbed(message) 
       .setDescription(`A continuación te mostramos las estadisticas de **${nation.name}** 😎 : `)
-      .setAuthor({ name : `${message.author.username}'s nation` })
       .setFields([
         {
           name : "**( <a:Bling:967855659477524560> ) Nombre**",
