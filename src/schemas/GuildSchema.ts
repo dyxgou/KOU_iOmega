@@ -1,5 +1,5 @@
 import { Schema , Document , model } from "mongoose"
-import { Amount ,  MIN_AMOUNT , MAX_AMOUNT } from "../utils/defaultServerVars"
+import { Amount ,  MIN_AMOUNT , MAX_AMOUNT, MIN_POPULATION_INCREMENT } from "../utils/defaultServerVars"
 import { INation } from "./NationSchema"
 
 interface IChannel
@@ -14,7 +14,8 @@ interface IGuild extends Document
   minAmount : Amount,
   maxAmount : Amount,
   channels : IChannel,
-  nations : Schema.Types.ObjectId[] | INation
+  nations : Schema.Types.ObjectId[] & INation,
+  populationIncrement  : number
 }
 
 
@@ -67,6 +68,12 @@ const GuildSchema = new Schema<IGuild>(
     nations : {
       type : Schema.Types.ObjectId,
       ref : "nations"
+    },
+
+    populationIncrement : {
+      type : Number,
+      default  : MIN_POPULATION_INCREMENT,
+      min : MIN_POPULATION_INCREMENT
     }
   }
 )

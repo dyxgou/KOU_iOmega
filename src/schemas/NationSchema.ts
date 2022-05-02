@@ -9,6 +9,7 @@ export interface INation extends Document
   nationPIB : number,
   nationDebit : number,
   nationExtention : number,
+  nationPopulation : number,
 }
 
 const NationShema = new Schema<INation>(
@@ -39,7 +40,11 @@ const NationShema = new Schema<INation>(
     nationPIB : {
       type : Number,
       default : 10000
-    }
+    },
+    nationPopulation : {
+      type : Number,
+      default : 1
+    },
   },
   {
     timestamps : true
