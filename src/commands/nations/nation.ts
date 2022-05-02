@@ -2,20 +2,25 @@ import { Message } from 'discord.js';
 import NationSchema from '../../schemas/NationSchema';
 import { ICallback } from 'utils/Command';
 import { commonEmbed, notNationsFound } from '../../utils/embeds';
-import { getUserInfo } from '../../utils/getInformation';
+import { getUserInfo , IUserInfo , getMentionInfo } from '../../utils/getInformation';
 
 export default {
   callback : async(message : Message , ...args: string[]) => 
   {
-    const userInfo = getUserInfo(message) 
+    let userInfo : IUserInfo
 
+    if(message.mentions.members?.first())
+      userInfo = getMentionInfo(message, ...args)
+    else
+      userInfo = getUserInfo(message)
+     
     const nation = await NationSchema.findOne(userInfo)
 
     if(!nation)
       return message.reply({ embeds : [ notNationsFound(message) ] })
 
     const embed = commonEmbed(message) 
-      .setDescription(`A continuación te mostramos las estadisticas de tu nación 😎 : `)
+      .setDescription(`A continuación te mostramos las estadisticas de **${nation.name}** 😎 : `)
       .setAuthor({ name : `${message.author.username}'s nation` })
       .setFields([
         {
