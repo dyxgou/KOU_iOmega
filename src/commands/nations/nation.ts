@@ -37,7 +37,7 @@ export default {
         },
         {
           name : "**( <a:Ok4:969254863361962034> ) Deficit Nacional**",
-          value : `\`${nation.nationDebit}Km^2\``
+          value : `\`$${nation.nationDebit}\``
         }, 
         {
           name : "**( 🗺️ ) Extención territorial**",
