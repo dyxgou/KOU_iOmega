@@ -1,6 +1,7 @@
 import { randomInt } from "mathjs"
 import { INation } from "schemas/NationSchema"
 import { MIN_POPULATION_INCREMENT } from "./defaultServerVars"
+
 interface PopulationIncrement 
 { 
   populationIncrement ?: number,
@@ -15,7 +16,7 @@ const randomPopulationIncrement = ({ populationIncrement = MIN_POPULATION_INCREM
   if(popIncrement > maxPopulation)
     return 0
   
-  const newPopulation = randomInt(1 , popIncrement)
+  const newPopulation = randomInt(1 , populationIncrement)
 
   return newPopulation
 }

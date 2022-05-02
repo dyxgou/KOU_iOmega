@@ -26,6 +26,9 @@ export default {
     const newPopulation = randomPopulationIncrement({ populationIncrement , nation })
     const embed = commonEmbed(message)
 
+    if(newPopulation === 0)
+      return message.reply(`En tu territorio actual de \`${nation.nationExtention}Km^2\` ya no caben tantas personas, inicia a crear expediciones para encontrar más territorio. <:what:967630589509386300>`)
+
     try {
       await nation.updateOne({
         $inc : {
