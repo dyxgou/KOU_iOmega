@@ -1,4 +1,4 @@
-import { Message, User } from 'discord.js';
+import { Message } from 'discord.js';
 import ms = require('ms');
 import { ICallback } from 'utils/Command';
 import { commonEmbed, notUserNation, userNotFoundEmbed } from '../../utils/embeds';
@@ -40,7 +40,7 @@ export default {
     
     
     const embed = commonEmbed(message)
-      .setDescription(`Te vas a disponer a explorar y debes elegir una dirección, asegurate de llevar dinero contigo, puesto que los territorios que descubras puedes sacarle provecho, pero necesitas el dinero para poder sobrevivir y comprar cosas por el camino o quemarlo si te quedas sin nada y estás con un frío bien hijuemadre. 🤑`)
+      .setDescription(`Estás a punto de **aventurarte** a explorar éste planeta, recuerda elegir la dirección correcta, o vas a perder tu dinero invertido en la expedición.`)
 
     const collector = await message.reply({
       embeds : [ embed ] , components : [ directionRow ]
@@ -57,7 +57,7 @@ export default {
       const finalTerritory = conquestTerritory(amountInvested)
 
       if(finalTerritory <= 1)
-        embed.setDescription(`En la dirección del ${int.component.label} no había nada, por lo tanto, tu inversión de ${amountInvested}`)
+        embed.setDescription(`En la dirección del ${int.component.label} no había nada, por lo tanto, tu inversión de \`$${amountInvested}\` se ha perdido.`)
       else
         embed.setDescription(`Cuando ibas hacía el ${int.component.label}, encontraste una extención de \`${finalTerritory} Km^2\`.`)
 

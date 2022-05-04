@@ -10,37 +10,45 @@ const CATEGORY_INTRO =
   "economy" : (msg : Message) => `¡Bienvenido ${msg.author}, este es el sistema de **Economía**! \n A continuación te mostramos los diferentes comandos 🤑 : `,
   "funny" : (msg : Message) => `¡Bienvenido ${msg.author}, este es el sistema de **Reacción**! \n A continuación te mostramos los diferentes comandos 😍 : `,
   "moderation" : (msg : Message) => `¡Bienvenido ${msg.author}, este es el sistema de **Moderación**! \n A continuación te mostramos los diferentes comandos 😎 : `,
+  "nations" : (msg : Message) => `Bienvenido ${msg.author}, este es el sistema de **Naciones**! \n A continuación te mostramos los diferentes comandos.`
 }
 
-const EMOJIS = { economy : "💵" , funny : "😊" , moderation : "👮‍♀️" }
+const EMOJIS = { economy : "💵" , funny : "😊" , moderation : "👮‍♀️" , nations :  "🗺️" }
 
-const getCmdCategory = (msg : Message , category : string) => 
+const getCmdCategory = (msg : Message , argument : string) => 
 {
-  const categoryIntro = CATEGORY_INTRO[ category as CategoryIntro ]
-
+  const categoryIntro = CATEGORY_INTRO[ argument as CategoryIntro ]
   const embed = helpCategories()
-
-  if(!categoryIntro)
-    return embed.setDescription("La categoría que acabas de mencionar no existe. 😭")
+  const commandHelp = commandsHelp.get(argument)
   
-  const commandsDir = __dirname.replace("\\utils" , "").concat(`\\commands\\${category}`)
-  const commandsCategory = getFiles(commandsDir , suffix)
-  const commandsDesc : EmbedFieldData[] = commandsCategory.map(file => {
-    const fileNameIndex = file.lastIndexOf("\\") + 1
-    const fileName = file.substring(fileNameIndex).replace(suffix , "")
+  if(categoryIntro === undefined && !commandHelp)
+    return embed.setDescription("La categoría o comando que acabas de mencionar no existe. 😭")
+  
+  const emoji = EMOJIS[ argument as CategoryIntro ]
 
-    //return `** ( ${EMOJIS[ category as CategoryIntro ]} )** \`z!${fileName}\` : ${commandsHelp.get(fileName)}`
-    return {
-      name : `** ( ${EMOJIS[ category as CategoryIntro ]} )** \`z!${fileName}\`` ,
-      value : `${commandsHelp.get(fileName)}`,
-    }
-  })
+  if(!commandHelp && categoryIntro)
+  {
+    const commandsDir = __dirname.replace("\\utils" , "").concat(`\\commands\\${argument}`)
+    const commandsCategory = getFiles(commandsDir , suffix).map(command => {
+      const commandNameIndex = command.lastIndexOf("\\") + 1
+      const commandName = command.substring(commandNameIndex).replace(suffix , "")
 
-  embed.setDescription(`**( <a:Diamond2:969254860639834132> ) ${category.toUpperCase()}**
-  ${categoryIntro(msg)}
-  `).setFields(commandsDesc)
+      return `**( ${emoji} )** \`z!${commandName}\` `
+    }).join("\n")
+    
+    embed.setDescription(`${categoryIntro(msg)}
+    
+    ${commandsCategory}`)
+      .setFooter({ text : "Para averiguar una descripción de cada comando, puedes usar z!help [Nombre del comando]" })
+  
+    return embed
+  }
+
+  embed.setDescription(`**( <a:Diamond2:969254860639834132> )** \`z!${argument}\`
+  
+  ${commandHelp}`)
 
   return embed
 }
 
-export default getCmdCategory
+export default getCmdCategory 
