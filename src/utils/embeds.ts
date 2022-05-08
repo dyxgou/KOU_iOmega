@@ -90,7 +90,9 @@ export const helpCategories = () =>
     
     Economía : \`z!help economy\`
     Reacciónes : \`z!help funny\`
-    Moderación : \`z!help moderation\``
+    Moderación : \`z!help moderation\`
+    Naciones : \`z!help nations\`
+    `
   })
 
   return embed
