@@ -38,8 +38,8 @@ export default {
 
       await user.updateOne({
         $inc : {
-          cash : -finalAmount,
-          bank : finalAmount
+          cash : Math.floor(-finalAmount),
+          bank : Math.floor(finalAmount)
         }
       })
 
