@@ -1,33 +1,28 @@
 import { Message } from 'discord.js';
 import NationSchema from '../../schemas/NationSchema';
 import { ICallback } from 'utils/Command';
-import { commonEmbed, notNationsFound, serverNotFoundEmbed } from '../../utils/embeds';
+import { commonEmbed, notNationsFound } from '../../utils/embeds';
 import { getUserInfo } from '../../utils/getInformation';
-import randomPopulationIncrement from '../../utils/populationIncrement';
-import GuildSchema from '../../schemas/GuildSchema';
+import randomPopulationIncrement , { NOT_ENOUGHT_EXTENTION , NOT_ENOUGHT_FOOD } from '../../utils/populationIncrement';
 
 export default {
   callback : async(message : Message , ...args: string[]) => 
   {
     const userInfo = getUserInfo(message)
 
-    const [ nation , server ] = await Promise.all([
-      NationSchema.findOne(userInfo , { nationPopulation : true , nationExtention : true }),
-      GuildSchema.findOne({ guildId : userInfo.guildId } , { populationIncrement  : true ,  _id : false })
-    ])
+    const nation =  await NationSchema.findOne(userInfo , { nationPopulation : true , nationExtention : true })
 
     if(!nation)
       return message.reply({ embeds : [ notNationsFound(message) ] })
-    if(!server)
-      return message.reply({ embeds : [ serverNotFoundEmbed(message) ] })
 
-    const { populationIncrement } = server
-
-    const newPopulation = randomPopulationIncrement({ populationIncrement , nation })
+    const newPopulation = randomPopulationIncrement({ nation })
     const embed = commonEmbed(message)
 
-    if(newPopulation === 0)
+    if(newPopulation === NOT_ENOUGHT_EXTENTION)
       return message.reply(`En tu territorio actual de \`${nation.nationExtention}Km^2\` ya no caben tantas personas, inicia a crear expediciones para encontrar más territorio. <:what:967630589509386300>`)
+    
+    if(newPopulation === NOT_ENOUGHT_FOOD)
+      return message.reply(`No hay suficiente comida para todas las \`${nation.nationPopulation} personas\` de tu nación, inicia a sembrar con \`z!na-recolect [Dinero]\`. 😋`)
 
     try {
       await nation.updateOne({
