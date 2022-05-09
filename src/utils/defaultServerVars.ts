@@ -19,5 +19,3 @@ export const MAX_AMOUNT : Amount =
   crime : 3500,
   fight : 6000
 }
-
-export const MIN_POPULATION_INCREMENT = 40
