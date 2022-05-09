@@ -10,6 +10,8 @@ export interface INation extends Document
   nationDebit : number,
   nationExtention : number,
   nationPopulation : number,
+  nationTaxes : number,
+  nationFood : number
 }
 
 const NationShema = new Schema<INation>(
@@ -28,6 +30,7 @@ const NationShema = new Schema<INation>(
       unique : true,
       max : 30,
       min : 3,
+      trim : true
     },
     nationExtention : {
       type : Number,
@@ -45,6 +48,16 @@ const NationShema = new Schema<INation>(
       type : Number,
       default : 1
     },
+    nationTaxes : {
+      type : Number,
+      default : 2,
+      min : 0,
+      max : 100
+    },
+    nationFood : {
+      type : Number,
+      default : 50
+    }
   },
   {
     timestamps : true

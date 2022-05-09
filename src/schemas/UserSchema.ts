@@ -23,7 +23,8 @@ const UserSchema = new Schema<IUser>(
     },
     cash : {
       type : Number ,
-      default : 1000
+      default : 1000,
+      
     },
     bank : {
       type : Number,
